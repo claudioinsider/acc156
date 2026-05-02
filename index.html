@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pedro Soldas – Usinagem, Solda e Ferragens em Caxias do Sul</title>
+    <meta
+      name="description"
+      content="Usinagem, tornearia, solda MIG/TIG e estruturas metálicas em Caxias do Sul-RS. Peças sob medida com precisão industrial. Solicite seu orçamento."
+    />
+    <meta
+      property="og:title"
+      content="Pedro Soldas – Usinagem e Solda em Caxias do Sul"
+    />
+    <meta
+      property="og:description"
+      content="Precisão e força em cada peça. Usinagem, solda e ferragens em Caxias do Sul-RS."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="company-name" content="PEDRO SOLDAS LTDA" />
+    <meta name="company-phone" content="(54) 9204-4875" />
+    <meta name="company-email" content="PEDROSOLDAS2022@GMAIL.COM" />
+    <meta
+      name="company-address"
+      content="R IRMA ZAGO, 1255, SAGRADA FAMILIA, CAXIAS DO SUL - RS, CEP: 95.054-170"
+    />
+    <meta name="company-number" content="CNPJ: 48.311.794/0001-30" />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --orange: #e87722;
+        --orange-dark: #c9621a;
+        --dark: #1a1a1a;
+        --dark2: #242424;
+        --dark3: #2e2e2e;
+        --light: #f5f5f5;
+        --muted: #888;
+        --white: #fff;
+        --radius: 0.75rem;
+        --shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          sans-serif;
+        background: var(--dark);
+        color: var(--light);
+        line-height: 1.6;
+      }
+
+      /* NAV */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(26, 26, 26, 0.95);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid #333;
+      }
+      .nav-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 1.25rem;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: var(--white);
+        text-decoration: none;
+        letter-spacing: 0.03em;
+      }
+      .nav-logo span {
+        color: var(--orange);
+      }
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+      .nav-links a {
+        color: #ccc;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--orange);
+      }
+
+      /* HERO */
+      .hero {
+        background: linear-gradient(
+          135deg,
+          #1a1a1a 0%,
+          #2a1800 60%,
+          #1a1a1a 100%
+        );
+        padding: 6rem 1.25rem 5rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse 80% 60% at 50% 40%,
+          rgba(232, 119, 34, 0.12) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .hero-tag {
+        display: inline-block;
+        background: rgba(232, 119, 34, 0.15);
+        color: var(--orange);
+        border: 1px solid rgba(232, 119, 34, 0.35);
+        border-radius: 999px;
+        padding: 0.3rem 1rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+      }
+      .hero h1 {
+        font-size: clamp(2.2rem, 6vw, 4rem);
+        font-weight: 900;
+        line-height: 1.1;
+        color: var(--white);
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+      }
+      .hero h1 em {
+        font-style: normal;
+        color: var(--orange);
+      }
+      .hero p {
+        font-size: 1.15rem;
+        color: #bbb;
+        max-width: 520px;
+        margin: 0 auto 2.5rem;
+      }
+      .btn-primary {
+        display: inline-block;
+        background: var(--orange);
+        color: var(--white);
+        font-weight: 700;
+        font-size: 1rem;
+        padding: 0.9rem 2.5rem;
+        border-radius: var(--radius);
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.15s;
+        letter-spacing: 0.04em;
+      }
+      .btn-primary:hover {
+        background: var(--orange-dark);
+        transform: translateY(-2px);
+      }
+
+      /* SECTIONS */
+      section {
+        padding: 5rem 1.25rem;
+      }
+      .section-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .section-label {
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--orange);
+        margin-bottom: 0.75rem;
+      }
+      .section-title {
+        font-size: clamp(1.6rem, 4vw, 2.4rem);
+        font-weight: 800;
+        color: var(--white);
+        margin-bottom: 0.6rem;
+      }
+      .section-sub {
+        color: var(--muted);
+        font-size: 1rem;
+        margin-bottom: 3rem;
+      }
+
+      /* SERVICES */
+      .services {
+        background: var(--dark2);
+      }
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 1.5rem;
+      }
+      .service-card {
+        background: var(--dark3);
+        border: 1px solid #3a3a3a;
+        border-radius: var(--radius);
+        padding: 2rem 1.75rem;
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
+      }
+      .service-card:hover {
+        border-color: var(--orange);
+        transform: translateY(-4px);
+      }
+      .service-icon {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+      }
+      .service-card h3 {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 0.4rem;
+      }
+      .service-card p {
+        font-size: 0.88rem;
+        color: var(--muted);
+      }
+
+      /* CONTACT */
+      .contact {
+        background: var(--dark);
+      }
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: start;
+      }
+      @media (max-width: 720px) {
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .contact-info-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .contact-item {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+      .contact-item-icon {
+        font-size: 1.4rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        background: rgba(232, 119, 34, 0.12);
+        border-radius: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .contact-item-text strong {
+        display: block;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--orange);
+        margin-bottom: 0.2rem;
+      }
+      .contact-item-text span {
+        font-size: 0.92rem;
+        color: #ccc;
+      }
+      .contact-item-text a {
+        color: #ccc;
+        text-decoration: none;
+      }
+      .contact-item-text a:hover {
+        color: var(--orange);
+      }
+
+      /* FORM */
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+      }
+      .form-group label {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #aaa;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .form-group input,
+      .form-group textarea {
+        background: var(--dark2);
+        border: 1px solid #3a3a3a;
+        border-radius: 0.5rem;
+        padding: 0.75rem 1rem;
+        color: var(--white);
+        font-size: 0.95rem;
+        font-family: inherit;
+        outline: none;
+        transition: border-color 0.2s;
+        resize: vertical;
+      }
+      .form-group input:focus,
+      .form-group textarea:focus {
+        border-color: var(--orange);
+      }
+      .form-group textarea {
+        min-height: 130px;
+      }
+      .btn-submit {
+        background: var(--orange);
+        color: var(--white);
+        border: none;
+        padding: 0.9rem;
+        border-radius: var(--radius);
+        font-weight: 700;
+        font-size: 0.95rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: background 0.2s;
+        margin-top: 0.25rem;
+      }
+      .btn-submit:hover {
+        background: var(--orange-dark);
+      }
+
+      /* FOOTER */
+      footer {
+        background: #111;
+        border-top: 1px solid #2a2a2a;
+        padding: 2.5rem 1.25rem;
+        text-align: center;
+      }
+      .footer-inner {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      footer h3 {
+        font-size: 1rem;
+        font-weight: 800;
+        color: var(--white);
+        margin-bottom: 0.3rem;
+        letter-spacing: 0.05em;
+      }
+      footer p {
+        font-size: 0.8rem;
+        color: var(--muted);
+        margin-bottom: 0.2rem;
+      }
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin: 1.25rem 0;
+        flex-wrap: wrap;
+      }
+      .footer-links a {
+        color: #777;
+        text-decoration: underline;
+        font-size: 0.82rem;
+        transition: color 0.2s;
+      }
+      .footer-links a:hover {
+        color: var(--orange);
+      }
+      .footer-copy {
+        font-size: 0.75rem;
+        color: #555;
+        margin-top: 1rem;
+      }
+
+      /* MOBILE NAV */
+      @media (max-width: 600px) {
+        .nav-links {
+          gap: 1.2rem;
+        }
+        .nav-links a {
+          font-size: 0.82rem;
+        }
+        .hero {
+          padding: 4rem 1rem 3.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <div class="nav-inner">
+        <a class="nav-logo" href="#">⚙️ PEDRO <span>SOLDAS</span></a>
+        <ul class="nav-links">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+      <div class="hero-tag">⚙️ Caxias do Sul – RS</div>
+      <h1>Precisão e força<br />em <em>cada peça</em></h1>
+      <p>
+        Usinagem, solda e ferragens com excelência industrial. Atendemos
+        indústrias e clientes particulares em Caxias do Sul e região.
+      </p>
+      <a class="btn-primary" href="#contato">Solicitar Orçamento</a>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section class="services" id="servicos">
+      <div class="section-inner">
+        <div class="section-label">O que oferecemos</div>
+        <h2 class="section-title">Nossos Serviços</h2>
+        <p class="section-sub">Conheça o que oferecemos</p>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">🔧</div>
+            <h3>Usinagem &amp; Tornearia</h3>
+            <p>Peças sob medida com precisão industrial</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">⚡</div>
+            <h3>Serviços de Solda</h3>
+            <p>MIG, TIG e solda elétrica especializada</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🏗️</div>
+            <h3>Estruturas Metálicas</h3>
+            <p>Fabricação e montagem de estruturas</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🔩</div>
+            <h3>Ferragens</h3>
+            <p>Comércio atacadista e varejista</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section class="contact" id="contato">
+      <div class="section-inner">
+        <div class="section-label">Fale conosco</div>
+        <h2 class="section-title">Entre em Contato</h2>
+        <p class="section-sub">Solicite um orçamento ou tire suas dúvidas</p>
+        <div class="contact-grid">
+          <div class="contact-info-list">
+            <div class="contact-item">
+              <div class="contact-item-icon">📍</div>
+              <div class="contact-item-text">
+                <strong>Endereço</strong>
+                <span
+                  >R. Irmã Zago, 1255 – Sagrada Família<br />Caxias do Sul – RS
+                  | CEP: 95.054-170</span
+                >
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">📞</div>
+              <div class="contact-item-text">
+                <strong>Telefone</strong>
+                <span><a href="tel:+5554920444875">(54) 9204-4875</a></span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">✉️</div>
+              <div class="contact-item-text">
+                <strong>E-mail</strong>
+                <span
+                  ><a href="mailto:PEDROSOLDAS2022@GMAIL.COM"
+                    >PEDROSOLDAS2022@GMAIL.COM</a
+                  ></span
+                >
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">🏢</div>
+              <div class="contact-item-text">
+                <strong>CNPJ</strong>
+                <span>48.311.794/0001-30</span>
+              </div>
+            </div>
+          </div>
+
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="name">Seu Nome</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Ex: João Silva"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="phone">Telefone</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="(54) 9 9999-9999"
+              />
+            </div>
+            <div class="form-group">
+              <label for="message">Sua Mensagem</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Descreva o serviço que precisa..."
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Enviar Mensagem</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-inner">
+        <h3>PEDRO SOLDAS LTDA</h3>
+        <p>CNPJ: 48.311.794/0001-30 | CAXIAS DO SUL – RS</p>
+        <div class="footer-links">
+          <a href="privacy/">Política de Privacidade</a>
+        </div>
+        <p class="footer-copy">
+          &copy; 2026 Pedro Soldas LTDA. Todos os direitos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault()
+          var btn = this.querySelector(".btn-submit")
+          btn.textContent = "Mensagem enviada!"
+          btn.disabled = true
+          btn.style.background = "#2e7d32"
+          setTimeout(function () {
+            btn.textContent = "Enviar Mensagem"
+            btn.disabled = false
+            btn.style.background = ""
+          }, 3500)
+        })
+    </script>
+  </body>
+</html>
