@@ -1,0 +1,855 @@
+<!doctype html>
+<html>
+  <head>
+    <script
+      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+      data-utmify-prevent-xcod-sck
+      data-utmify-prevent-subids
+      data-utmify-ignore-iframe
+      data-utmify-is-cartpanda
+      async
+      defer
+    ></script>
+
+    <script>
+      window.googlePixelId = "6a11079da48e2cd5baf1e384"
+      var a = document.createElement("script")
+      a.setAttribute("async", "")
+      a.setAttribute("defer", "")
+      a.setAttribute(
+        "src",
+        "https://cdn.utmify.com.br/scripts/pixel/pixel-google.js",
+      )
+      document.head.appendChild(a)
+    </script>
+    <script>
+      ;(function () {
+        function getParam(name) {
+          try {
+            return new URL(window.location.href).searchParams.get(name) || ""
+          } catch (e) {
+            return ""
+          }
+        }
+
+        function extractId(value) {
+          if (!value) return ""
+          var parts = value.split("|")
+          return parts.length > 1 ? parts[parts.length - 1] : parts[0]
+        }
+        var utm_source = extractId(getParam("utm_source"))
+        var utm_campaign = extractId(getParam("utm_campaign"))
+        var utm_medium = extractId(getParam("utm_medium"))
+        var utm_content = extractId(getParam("utm_content"))
+        var utm_term = extractId(getParam("utm_term"))
+        if (
+          !utm_source &&
+          !utm_campaign &&
+          !utm_medium &&
+          !utm_content &&
+          !utm_term
+        ) {
+          return
+        }
+        var hopBase = "https://bb94c7fhof448l5annqgc3as3w.hop.clickbank.net"
+        var params = [
+          "aff_sub1=" + encodeURIComponent(utm_source),
+          "aff_sub2=" + encodeURIComponent(utm_campaign),
+          "aff_sub3=" + encodeURIComponent(utm_medium),
+          "aff_sub4=" + encodeURIComponent(utm_content),
+          "aff_sub5=" + encodeURIComponent(utm_term),
+          "unique_aff_sub1=" + encodeURIComponent(utm_source),
+          "unique_aff_sub2=" + encodeURIComponent(utm_campaign),
+          "unique_aff_sub3=" + encodeURIComponent(utm_medium),
+          "unique_aff_sub4=" + encodeURIComponent(utm_content),
+          "unique_aff_sub5=" + encodeURIComponent(utm_term),
+        ]
+        var hopUrl = hopBase + "?" + params.join("&")
+        var iframe = document.createElement("iframe")
+        iframe.src = hopUrl
+        iframe.width = "0"
+        iframe.height = "0"
+        iframe.style.cssText =
+          "display:none;width:0;height:0;border:0;position:absolute;left:-9999px;"
+        iframe.setAttribute("tabindex", "-1")
+        iframe.setAttribute("aria-hidden", "true")
+        iframe.setAttribute("title", "")
+        if (document.body) {
+          document.body.appendChild(iframe)
+        } else {
+          document.addEventListener("DOMContentLoaded", function () {
+            document.body.appendChild(iframe)
+          })
+        }
+        console.log("[HopLink] IDs extraídos:", {
+          aff_sub1: utm_source,
+          aff_sub2: utm_campaign,
+          aff_sub3: utm_medium,
+          aff_sub4: utm_content,
+          aff_sub5: utm_term,
+        })
+        console.log("[HopLink] URL:", hopUrl)
+      })()
+    </script>
+
+    <script>
+      ;(function () {
+        var hopBase =
+          "https://ff3028skvm0ex5n5znt9zi3jff.hop.clickbank.net/?&unique_aff_sub5={sub17}"
+
+        function getParam(name) {
+          try {
+            return new URL(window.location.href).searchParams.get(name) || ""
+          } catch (e) {
+            return ""
+          }
+        }
+
+        function extractId(value) {
+          if (!value) return ""
+          var parts = value.split("|")
+          return parts.length > 1 ? parts[parts.length - 1] : parts[0]
+        }
+
+        function buildAndFireHopLink(vturbCk) {
+          var utm_source = extractId(getParam("utm_source"))
+          var utm_campaign = extractId(getParam("utm_campaign"))
+          var utm_medium = extractId(getParam("utm_medium"))
+          var utm_content = extractId(getParam("utm_content"))
+          var utm_term = extractId(getParam("utm_term"))
+
+          var hopUrlObj = new URL(hopBase)
+
+          // Copia todos os parâmetros da URL atual para a hop URL
+          try {
+            var currentParams = new URL(window.location.href).searchParams
+            currentParams.forEach(function (value, key) {
+              if (!hopUrlObj.searchParams.has(key)) {
+                hopUrlObj.searchParams.set(key, value)
+              }
+            })
+          } catch (e) {}
+
+          // Adiciona aff_sub e unique_aff_sub apenas se não existirem
+          var affSubs = {
+            aff_sub1: utm_source || vturbCk || "",
+            aff_sub2: utm_campaign || vturbCk || "",
+            aff_sub3: utm_medium || vturbCk || "",
+            aff_sub4: utm_content || vturbCk || "",
+            aff_sub5: vturbCk || utm_term || "",
+            unique_aff_sub1: utm_source || vturbCk || "",
+            unique_aff_sub2: utm_campaign || vturbCk || "",
+            unique_aff_sub3: utm_medium || vturbCk || "",
+            unique_aff_sub4: utm_content || vturbCk || "",
+            unique_aff_sub5: vturbCk || utm_term || "",
+          }
+
+          for (var key in affSubs) {
+            if (!hopUrlObj.searchParams.has(key)) {
+              hopUrlObj.searchParams.set(key, affSubs[key])
+            }
+          }
+
+          var hopUrl = hopUrlObj.toString()
+
+          var iframe = document.createElement("iframe")
+          iframe.src = hopUrl
+          iframe.width = "0"
+          iframe.height = "0"
+          iframe.style.cssText =
+            "display:none;width:0;height:0;border:0;position:absolute;left:-9999px;"
+          iframe.setAttribute("tabindex", "-1")
+          iframe.setAttribute("aria-hidden", "true")
+          iframe.setAttribute("title", "")
+
+          if (document.body) {
+            document.body.appendChild(iframe)
+          } else {
+            document.addEventListener("DOMContentLoaded", function () {
+              document.body.appendChild(iframe)
+            })
+          }
+
+          console.log("[HopLink] IDs extraídos:", {
+            aff_sub1: utm_source,
+            aff_sub2: utm_campaign,
+            aff_sub3: utm_medium,
+            aff_sub4: utm_content,
+            aff_sub5: vturbCk || utm_term,
+          })
+          console.log("[HopLink] URL:", hopUrl)
+        }
+        var player = document.querySelector("vturb-smartplayer")
+
+        player.addEventListener("player:ready", async function () {
+          try {
+            var url = await player.urlUpdater("https://placeholder.com")
+            var parsedUrl = new URL(url)
+            var paramns = player.config.conversion
+            var vturbCk = ""
+            paramns.forEach((param) => {
+              var value = parsedUrl.searchParams.get(param)
+              if (value) {
+                vturbCk = value
+              }
+            })
+            buildAndFireHopLink(vturbCk)
+          } catch (e) {
+            console.warn("[HopLink] Erro ao obter urlUpdater:", e)
+            buildAndFireHopLink("")
+          }
+        })
+      })()
+    </script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>News</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Roboto", sans-serif;
+      }
+
+      vturb-smartplayer {
+        --headline-margin-bottom: 10px !important;
+      }
+
+      main#container {
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        max-width: 600px;
+      }
+
+      .header {
+        background-color: #a70b0d;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5rem;
+        font-size: 1.6rem;
+      }
+
+      .menu-icon {
+        position: absolute;
+        left: 15;
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #ffffff;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* --------------- */
+
+      footer {
+        background-color: #a70b0d;
+        color: rgb(235, 235, 235);
+      }
+
+      footer p {
+        padding: 12px 1rem;
+      }
+
+      footer p:nth-last-child(1) {
+        text-align: center;
+        font-weight: 500;
+        background-color: #000000;
+      }
+
+      #toper {
+        margin: 0 10px;
+        border-radius: 15px;
+        font-size: 1em;
+        border: 2px solid #e14766;
+        padding: 0.5rem 1.2rem;
+        text-align: center;
+        background-color: #fce7f3;
+      }
+
+      #toper span {
+        color: #00a63e;
+      }
+
+      #toper p {
+        font-style: italic;
+        padding-top: 10px;
+      }
+      /* ------------- botles------ */
+
+      #bottles {
+        margin-top: 1.5rem;
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      #bottles a {
+        border: none;
+        background-color: white;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        display: grid;
+        place-items: center;
+        transition: transform 0.4s ease;
+      }
+
+      #bottles a:hover {
+        cursor: pointer;
+        transform: scale(1.03);
+      }
+
+      #bottles img {
+        /* box-shadow: 0px 0px 10px rgb(179, 179, 179); */
+        width: 100%;
+        border-radius: 15px;
+      }
+
+      #bottles #b6 {
+        border-radius: 15px;
+      }
+
+      #vsl-content {
+        margin-bottom: 1rem;
+      }
+
+      #vsl {
+        margin: 0 auto;
+      }
+
+      #timer {
+        font-size: 60px;
+        color: white;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        border-radius: 5px;
+        display: inline-block;
+      }
+      .icons_div {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+
+      .comments {
+        padding: 10px 1rem 3rem;
+        background-color: #f5f5f5;
+        display: grid;
+        gap: 10px;
+      }
+      .comments h3 {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 17px;
+        margin-bottom: 0.5rem;
+      }
+
+      .comment-1 {
+        display: flex;
+        align-items: start;
+        gap: 10px;
+      }
+
+      .comment-1 img {
+        width: 45px;
+      }
+
+      .comment-1 main {
+        display: grid;
+
+        gap: 5px;
+      }
+
+      .comment-1 main section {
+        display: grid;
+        gap: 5px;
+      }
+      .comment-1 main h4 {
+        color: #385898;
+        font-size: 1rem;
+      }
+      .comment-1 main p {
+        font-size: 1.1rem;
+        color: #1c1e21;
+        line-height: 19px;
+      }
+
+      .resp {
+        margin-left: 71px;
+        padding-left: 5px;
+        border-left: 1px solid rgb(226, 226, 226);
+      }
+      .sub-comments {
+        display: flex;
+        width: calc(100% - 55px);
+        transform: translateX(55px);
+        padding: 2px 0 0;
+        gap: 3px;
+        align-items: center;
+        font-weight: 400;
+        font-size: 1rem;
+        font-family: Helvetica, Arial, sans-serif;
+        cursor: pointer;
+        color: #4267b2;
+      }
+
+      .sub-comments > * {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .point {
+        font-size: 1rem;
+        transform: translateY(-4px);
+      }
+
+      .reply-tooltip {
+        position: absolute;
+        background-color: #f0f2f5;
+        color: #050505;
+        font-size: 12px;
+        font-family: Arial, sans-serif;
+        padding: 5px 10px;
+        border-radius: 8px;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        white-space: nowrap;
+        animation: fadeIn 0.2s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(5px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main id="container">
+      <header class="header">
+        <div class="logo">HEALTH</div>
+      </header>
+
+      <section id="vsl-content">
+        <article id="vsl">
+          <vturb-smartplayer
+            id="vid-6a0f9a1240ec3fa205abb603"
+            style="
+              display: block;
+              margin: 0 auto;
+              width: 100%;
+              max-width: 400px;
+            "
+          ></vturb-smartplayer>
+          <script type="text/javascript">
+            var s = document.createElement("script")
+            ;((s.src =
+              "https://scripts.converteai.net/44b62239-d730-47b6-ae87-62548241599d/players/6a0f9a1240ec3fa205abb603/v4/player.js"),
+              (s.async = !0),
+              document.head.appendChild(s))
+          </script>
+        </article>
+      </section>
+
+      <img
+        width="90%"
+        style="margin: 0 auto 2rem; display: block"
+        src="https://imagedelivery.net/2IMuCyHeF2Yuho0z8fGm6g/8e6e8543-5f7c-4ca4-403a-324d7361c700/public"
+        alt=""
+      />
+
+      <style>
+        .esconder {
+          display: none;
+        }
+      </style>
+
+      <div class="esconder">
+        <section id="toper">
+          <h3>
+            Enjoy <span>FREE SHIPPING</span> <br />
+            on 3 and 6-Bottle Orders!
+          </h3>
+          <p>
+            *For long-term results, we recommend choosing the
+            <b>6 bottle option</b>
+          </p>
+        </section>
+
+        <article style="padding: 0 10px" id="bottles">
+          <a
+            class="smartplayer-click-event"
+            href="https://gluco360.pay.clickbank.net/?cbitems=GLU-EN-6BOTTLES&template=glucoli6&cbfid=62503&param=vsl&affiliate=geniushu
+"
+          >
+            <img id="b6" src="card-6b-gluco360.webp" alt="" />
+          </a>
+          <a
+            class="smartplayer-click-event"
+            href="https://gluco360.pay.clickbank.net/?cbitems=GLU-EN-3BOTTLES&template=glucoli3&cbfid=62503&param=vsl&affiliate=geniushu"
+          >
+            <img src="card-3b-gluco360.webp" alt="" />
+          </a>
+          <a
+            class="smartplayer-click-event"
+            href="https://gluco360.pay.clickbank.net/?cbitems=GLU-EN-2BOTTLES&template=glucoli2&cbfid=62503&param=vsl&affiliate=geniushu
+"
+          >
+            <img src="card-2b-gluco360.webp" alt="" />
+          </a>
+        </article>
+
+        <img
+          style="width: 100%; margin: 1rem 0 3rem"
+          src="https://imagedelivery.net/2IMuCyHeF2Yuho0z8fGm6g/f68e308e-69fe-4128-5163-9be752483000/public"
+          alt=""
+        />
+      </div>
+
+      <section class="comments">
+        <h3>22,715 comments</h3>
+
+        <main class="card-comment">
+          <article class="comment-1">
+            <img
+              src="https://imagedelivery.net/2IMuCyHeF2Yuho0z8fGm6g/ff825080-0ad5-486f-a36e-b1dcc9c98400/public"
+              alt=""
+            />
+            <main>
+              <section>
+                <h4>Ashley Miller</h4>
+                <p>
+                  I was exhausted. Even though I slept well, it felt like my
+                  body never rested. Sugar levels are always unregulated, and
+                  that constant feeling of heaviness… This simple trick What I
+                  discovered changed my daily life. Today I wake up with real
+                  energy.
+                </p>
+              </section>
+            </main>
+          </article>
+          <article class="sub-comments">
+            <span>Like</span>
+            <span class="point">.</span>
+            <span>Reply</span>
+            <span class="point">.</span>
+            <span
+              ><img
+                width="14"
+                height="14"
+                src="https://imagedelivery.net/2IMuCyHeF2Yuho0z8fGm6g/05cac1b2-01a2-45e3-888d-2a11afda9200/public"
+                alt=""
+              />
+              <span>23</span></span
+            >
+            <span class="point">.</span>
+            <span>2h</span>
+          </article>
+        </main>
+
+        <main class="card-comment resp">
+          <article class="comment-1">
+            <img
+              src="https://imagedelivery.net/2IMuCyHeF2Yuho0z8fGm6g/1cc52753-f777-4fcd-8045-a403dbe2db00/public"
+              alt=""
+            />
+            <main>
+              <section>
+                <h4>Emily Johnson</h4>
+                <p>
+                  I reached a point where I felt like nothing was working
+                  anymore. It was swelling, dizziness, blurred vision... a
+                  different symptom every day. When they gave me this natural
+                  recipe, I confess that I doubted it. But it only took a few
+                  days to notice the difference.
+                </p>
+              </section>
+            </main>
+          </article>
+          <article class="sub-comments">
+            <span>Like</span>
+            <span class="point">.</span>
+            <span>Reply</span>
+            <span class="point">.</span>
+            <span
+              ><img
+                width="14"
+                height="14"
+                src="https://imagedelivery.net/2IMuCyHeF2Yuho0z8fGm6g/05cac1b2-01a2-45e3-888d-2a11afda9200/public"
+                alt=""
+              />
+              <span>17</span></span
+            >
+            <span class="point">.</span>
+            <span>35min</span>
+          </article>
+        </main>
+
+        <main
+          style="transform: translateY(-10px); padding-top: 10px"
+          class="card-comment resp"
+        >
+          <article class="comment-1">
+            <img
+              src="https://imagedelivery.net/2IMuCyHeF2Yuho0z8fGm6g/dc5b0636-8e70-4f4a-6799-18dbb9356f00/public"
+              alt=""
+            />
+            <main>
+              <section>
+                <h4>Sarah Thompson</h4>
+                <p>
+                  Waking up with a headache and already feeling irritated has
+                  become routine. And the worst part: no one understood what I
+                  yours passing by. Use this It brought me back the stability I
+                  thought I would never have again. It's not a miracle, it's
+                  forgotten science.
+                </p>
+              </section>
+            </main>
+          </article>
+          <article class="sub-comments">
+            <span>Like</span>
+            <span class="point">.</span>
+            <span>Reply</span>
+            <span class="point">.</span>
+            <span
+              ><img
+                width="14"
+                height="14"
+                src="https://imagedelivery.net/2IMuCyHeF2Yuho0z8fGm6g/05cac1b2-01a2-45e3-888d-2a11afda9200/public"
+                alt=""
+              />
+              <span>11</span></span
+            >
+            <span class="point">.</span>
+            <span>7min</span>
+          </article>
+        </main>
+
+        <main class="card-comment">
+          <article class="comment-1">
+            <img
+              src="https://imagedelivery.net/2IMuCyHeF2Yuho0z8fGm6g/14502082-bd26-44c6-9537-cd40b59ba400/public"
+              alt=""
+            />
+            <main>
+              <section>
+                <h4>Jessica Roberts</h4>
+                <p>
+                  I'm 47 years old and I had already accepted that tiredness,
+                  discouragement and blood sugar spikes were part of age. But it
+                  wasn't quite like that. Then I watched this video and did this
+                  trick and my body quickly thanked me.
+                </p>
+              </section>
+            </main>
+          </article>
+          <article class="sub-comments">
+            <span>Like</span>
+            <span class="point">.</span>
+            <span>Reply</span>
+            <span class="point">.</span>
+            <span
+              ><img
+                width="14"
+                height="14"
+                src="https://imagedelivery.net/2IMuCyHeF2Yuho0z8fGm6g/05cac1b2-01a2-45e3-888d-2a11afda9200/public"
+                alt=""
+              />
+              <span>33</span></span
+            >
+            <span class="point">.</span>
+            <span>1h</span>
+          </article>
+        </main>
+
+        <main class="card-comment">
+          <article class="comment-1">
+            <img
+              src="https://imagedelivery.net/2IMuCyHeF2Yuho0z8fGm6g/2aae5f63-2fb2-448c-7693-e0484868d900/public"
+              alt=""
+            />
+            <main>
+              <section>
+                <h4>Olivia Carter</h4>
+                <p>
+                  After I had my son, my health became a rollercoaster. There
+                  was a lack of focus, energy, patience… everything. One day
+                  they showed me this revenue and I thought: "why not?". It was
+                  one of the best decisions I made.
+                </p>
+              </section>
+            </main>
+          </article>
+          <article class="sub-comments">
+            <span>Like</span>
+            <span class="point">.</span>
+            <span>Reply</span>
+            <span class="point">.</span>
+            <span
+              ><img
+                width="14"
+                height="14"
+                src="https://imagedelivery.net/2IMuCyHeF2Yuho0z8fGm6g/05cac1b2-01a2-45e3-888d-2a11afda9200/public"
+                alt=""
+              />
+              <span>54</span></span
+            >
+            <span class="point">.</span>
+            <span>1h</span>
+          </article>
+        </main>
+
+        <main class="card-comment">
+          <article class="comment-1">
+            <img
+              src="https://imagedelivery.net/2IMuCyHeF2Yuho0z8fGm6g/f17c8215-e356-4f73-5b26-36cf0f8ef400/public"
+              alt=""
+            />
+            <main>
+              <section>
+                <h4>Lauren Davis</h4>
+                <p>
+                  The worst thing about diabetes, for me, has always been the
+                  feeling of helplessness. Of doing everything "right" and still
+                  seeing the lack of control continue. But after I started using
+                  it different trick, I realized that the problem wasn’t with me
+                  – it was with what I yet I did not know.
+                </p>
+              </section>
+            </main>
+          </article>
+          <article class="sub-comments">
+            <span>Like</span>
+            <span class="point">.</span>
+            <span>Reply</span>
+            <span class="point">.</span>
+            <span
+              ><img
+                width="14"
+                height="14"
+                src="https://imagedelivery.net/2IMuCyHeF2Yuho0z8fGm6g/05cac1b2-01a2-45e3-888d-2a11afda9200/public"
+                alt=""
+              />
+              <span>10</span></span
+            >
+            <span class="point">.</span>
+            <span>19min</span>
+          </article>
+        </main>
+      </section>
+
+      <footer>
+        <p>2026. All rights reserved.</p>
+      </footer>
+    </main>
+
+    <!-- ------- Pagina ---------- -->
+
+    <script>
+      document.querySelectorAll(".sub-comments").forEach((subComment) => {
+        subComment.addEventListener("click", function (e) {
+          const target = e.target
+
+          // === LIKE / DISLIKE ===
+          if (
+            target.textContent === "Like" ||
+            target.textContent === "Dislike"
+          ) {
+            const container = target.parentElement
+            const likeBlock = Array.from(container.children).find((el) =>
+              el.querySelector("img"),
+            )
+            const spanLikeCount = likeBlock.querySelector("span")
+            let currentLikes = parseInt(spanLikeCount.textContent)
+
+            if (target.textContent === "Like") {
+              spanLikeCount.textContent = currentLikes + 1
+              target.textContent = "Dislike"
+            } else {
+              spanLikeCount.textContent = currentLikes - 1
+              target.textContent = "Like"
+            }
+          }
+
+          // === REPLY TOOLTIP ===
+          if (target.textContent === "Reply") {
+            // Remove qualquer tooltip existente
+            document
+              .querySelectorAll(".reply-tooltip")
+              .forEach((el) => el.remove())
+
+            // Cria nova tooltip
+            const tooltip = document.createElement("div")
+            tooltip.textContent = "it is no longer possible"
+            tooltip.className = "reply-tooltip"
+
+            // Insere no DOM próximo ao botão clicado
+            const rect = target.getBoundingClientRect()
+            tooltip.style.top = `${window.scrollY + rect.top - 35}px`
+            tooltip.style.left = `${rect.left}px`
+
+            document.body.appendChild(tooltip)
+
+            // Remove depois de 3 segundos
+            setTimeout(() => tooltip.remove(), 3000)
+          }
+        })
+      })
+    </script>
+
+    <!-- ------- Pagina ---------- -->
+
+    <script>
+      const tempoPitch = "01:03:46"
+
+      const tempoPitchSegundos = tempoPitch
+        .split(":")
+        .map(Number)
+        .reduce((acc, val) => acc * 60 + val, 0)
+
+      var delaySeconds = tempoPitchSegundos
+      var player = document.querySelector("vturb-smartplayer")
+
+      player.addEventListener("player:ready", function () {
+        player.displayHiddenElements(delaySeconds, [".esconder"], {
+          persist: true,
+        })
+      })
+    </script>
+
+    <script>
+      const LEAD = "L1"
+
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll("a").forEach(function (link) {
+          link.addEventListener("click", function (e) {
+            const url = new URL(link.href)
+
+            // Adiciona ou substitui o parâmetro 'sub16'
+            url.searchParams.set("sub16", LEAD)
+
+            // Atualiza o href do link com o novo parâmetro
+            link.href = url.toString()
+          })
+        })
+      })
+    </script>
+    <!-- ----------------------Script Vturb-------------------------- -->
+  </body>
+</html>
